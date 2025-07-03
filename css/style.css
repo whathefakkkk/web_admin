@@ -1,0 +1,81 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+}
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  background-color: #5e3b24;
+  color: #fff;
+  padding-top: 20px;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sidebar a i {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+}
+.sidebar a span {
+  margin-left: 10px;
+}
+.sidebar a:hover, .sidebar a.active {
+  background-color: #7c5438;
+  border-left: 4px solid #fff;
+  padding-left: 20px;
+  }
+.main-content {
+  margin-left: 250px;
+  padding: 30px;
+}
+.card-custom {
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+.topbar {
+  background: #fff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  border-bottom: 1px solid #eee;
+}
+.topbar.hidden {
+  display: none !important;
+}
+.metric-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.badge-status {
+  border-radius: 30px;
+  padding: 5px 15px;
+}
+.content-section {
+  display: none;
+}
+.content-section.active {
+  display: block;
+}
+.menu-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}

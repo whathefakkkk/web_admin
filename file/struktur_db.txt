@@ -1,0 +1,70 @@
+-- Dibuat oleh: Juan Sylvister
+-- Gunakan file ini untuk membuat database dan tabel dari awal.
+
+CREATE DATABASE nama_database;
+USE nama_database;
+
+-- ===============================
+-- TABEL USERS (Pengguna)
+-- ===============================
+CREATE TABLE users (
+  id_user INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nama_pengguna VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  pass VARCHAR(255) NOT NULL,
+  role ENUM('admin','kasir') NOT NULL',
+  status ENUM('aktif','nonaktif','blokir') NOT NULL DEFAULT 'aktif'
+);
+
+-- ===============================
+-- TABEL MENU
+-- ===============================
+CREATE TABLE menu (
+  id_menu INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nama_menu VARCHAR(100) NOT NULL,
+  harga INT(11) NOT NULL,
+  kategori ENUM('minuman','makanan') NOT NULL,
+  gambar TEXT NOT NULL,
+  status ENUM('aktif','arsip') DEFAULT 'aktif'
+);
+
+-- ===============================
+-- TABEL TRANSAKSI
+-- ===============================
+CREATE TABLE transaksi (
+  id_transaksi INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nama_pelanggan VARCHAR(100) NOT NULL,
+  jenis ENUM('dine-in','take-away') NOT NULL,
+  no_meja INT(10),
+  waktu_pesan DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  waktu_bayar DATETIME DEFAULT NULL,
+  total INT(11) NOT NULL,
+  status ENUM('diproses','selesai','batal') NOT NULL DEFAULT 'diproses',
+  dibuat_oleh ENUM('pelanggan','kasir') NOT NULL DEFAULT 'pelanggan',
+  id_user INT(11),
+  FOREIGN KEY (id_user) REFERENCES users(id_user)
+);
+
+-- ===============================
+-- TABEL TRANSAKSI DETAIL
+-- ===============================
+CREATE TABLE detail_transaksi (
+  id_detail INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_transaksi INT(11) NOT NULL,
+  id_menu INT(11) NOT NULL,
+  nama_menu VARCHAR(100) NOT NULL,
+  jumlah INT(11) NOT NULL,
+  subtotal INT(11) NOT NULL,
+  FOREIGN KEY (id_transaksi) REFERENCES transaksi(id_transaksi) ON DELETE CASCADE,
+  FOREIGN KEY (id_menu) REFERENCES menu(id_menu)
+);
+
+-- ===============================
+-- TABEL LOG AKTIVITAS (Opsional)
+-- ===============================
+CREATE TABLE log_aktivitas (
+    id_log INT AUTO_INCREMENT PRIMARY KEY,
+    waktu DATETIME,
+    aksi VARCHAR(255),
+    pengguna VARCHAR(100)
+);

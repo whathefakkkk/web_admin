@@ -1,0 +1,5 @@
+ErrorDocument 404 /web_admin/error/404.php
+ErrorDocument 500 /web_admin/error/500.php
+ErrorDocument 403 /web_admin/error/403.php
+
+RewriteEngine On
