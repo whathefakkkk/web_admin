@@ -39,7 +39,7 @@
     <img src="https://www.svgrepo.com/show/397861/coffee-error.svg" alt="404" />
     <h1>404</h1>
     <p>Ups, halaman yang kamu cari tidak ditemukan ☕</p>
-    <a href="../file/login.php">Kembali ke Beranda</a>
+    <a href="../login.php">Kembali ke Beranda</a>
   </div>
 </body>
 </html>

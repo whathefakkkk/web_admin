@@ -6,14 +6,14 @@ if (!isset($_SESSION['nama_pengguna'])) {
 }
 $nama = $_SESSION['nama_pengguna'];
 
-include 'koneksi.php';
-include 'log_aktivitas.php';
+include './file/koneksi.php';
+include './file/log_aktivitas.php';
 
 function bersih($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
 }
 
-date_default_timezone_set('Asia/Singapore');
+date_default_timezone_set('Asia/Singapore'); //ganti sesuai time zone anda
 function salamWaktu() {
     $jam = date("H");
     if ($jam >= 5 && $jam < 11) {
@@ -58,7 +58,7 @@ if (isset($_POST['batal'])) {
 <head>
     <meta charset="UTF-8">
     <title> Kasir </title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
         body {
@@ -146,7 +146,7 @@ if (isset($_POST['batal'])) {
     </div>
 </div>
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>feather.replace();</script>
 </body>
 </html>

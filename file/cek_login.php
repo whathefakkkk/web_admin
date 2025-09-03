@@ -18,16 +18,16 @@ if ($user && password_verify($pass_input, $user['pass'])) {
 
     // Cek role & redirect sesuai
     if ($user['role'] === 'admin') {
-        header("Location: admin.php");
+        header("Location: ../admin.php");
         exit;
     } elseif ($user['role'] === 'kasir') {
-        header("Location: kasir.php");
+        header("Location: ../kasir.php");
         exit;
     } else {
-        echo "<script>alert('Role tidak dikenali'); window.location.href='login.php';</script>";
+        echo "<script>alert('Role tidak dikenali'); window.location.href='../login.php';</script>";
     }
     exit;
 } else {
-    echo "<script>alert('Email atau password salah'); window.location.href='login.php';</script>";
+    echo "<script>alert('Email atau password salah'); window.location.href='../login.php';</script>";
 }
 ?>

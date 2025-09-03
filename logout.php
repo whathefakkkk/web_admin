@@ -1,6 +1,6 @@
 <?php
-include 'koneksi.php';
-include 'log_aktivitas.php';
+include './file/koneksi.php';
+include './file/log_aktivitas.php';
 session_start();
 
 $nama = $_SESSION['nama_pengguna'] ?? 'Unknown';

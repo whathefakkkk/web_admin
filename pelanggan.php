@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'koneksi.php';
-include 'log_aktivitas.php';
+include './file/koneksi.php';
+include './file/log_aktivitas.php';
 
 function rupiah($angka) {
     return "Rp " . number_format($angka, 0, ',', '.');
@@ -82,7 +82,7 @@ if (isset($_POST['kirim'])) {
 <head>
     <meta charset="UTF-8">
     <title> Pesanan </title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -185,7 +185,7 @@ if (isset($_POST['kirim'])) {
     <p>Pesanan Anda sedang diproses...</p>
 </div>
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>
 function toggleMeja(val) {
     const mejaInput = document.getElementById('input-meja');
@@ -206,7 +206,7 @@ function showPopupThenRedirect() {
     popup.style.display = 'block';
     setTimeout(() => {
         window.location.href = "<?= $_SERVER['PHP_SELF'] ?>";
-    }, 3000);
+    }, 2000);
 }
 
 </script>

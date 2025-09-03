@@ -26,7 +26,7 @@ unset($_SESSION['error_msg']);
         <h1 class="display-1 text-danger">500</h1>
         <h4 class="mb-3">Kesalahan Server</h4>
         <p><?= htmlspecialchars($msg) ?></p>
-        <a href="../file/admin.php" class="btn btn-danger mt-3">Kembali ke Admin</a>
+        <a href="../admin.php" class="btn btn-danger mt-3">Kembali ke Admin</a>
     </div>
 </body>
 </html>

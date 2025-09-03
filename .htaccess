@@ -1,0 +1,13 @@
+# arahkan default page ke login.php
+DirectoryIndex login.php
+
+# matikan directory listing
+Options -Indexes
+
+# custom error page
+ErrorDocument 403 /web_admin/error/403.php
+ErrorDocument 404 /web_admin/error/404.php
+ErrorDocument 500 /web_admin/error/500.php
+
+# aktifkan mod_rewrite (kalau dibutuhkan)
+RewriteEngine On

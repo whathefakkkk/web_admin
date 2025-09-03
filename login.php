@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'koneksi.php';
-include 'log_aktivitas.php';
+include './file/koneksi.php';
+include './file/log_aktivitas.php';
 
 function bersihkan($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
@@ -78,7 +78,7 @@ if (isset($_POST['signup'])) {
 <head>
     <meta charset="UTF-8">
     <title>Login & Sign Up</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -112,7 +112,7 @@ if (isset($_POST['signup'])) {
                         <h3 class="text-center mb-4">Login</h3>
                         <div class="mb-3">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="text" name="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label>Password</label>
@@ -133,7 +133,7 @@ if (isset($_POST['signup'])) {
                         </div>
                         <div class="mb-3">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control" required onkeyup="cekEmail(this.value)">
+                            <input type="text" name="email" class="form-control" required onkeyup="cekEmail(this.value)">
                             <div id="cek-email" class="form-text text-danger"></div>
                         </div>
                         <div class="mb-3">
@@ -159,7 +159,7 @@ if (isset($_POST['signup'])) {
     </div>
 </div>
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>
 function toggleForm() {
     document.getElementById("form-login").style.display =
@@ -173,7 +173,7 @@ function cekEmail(email) {
         document.getElementById('cek-email').innerText = "";
         return;
     }
-    fetch("cek_email.php?email=" + email)
+    fetch("./file/cek_email.php?email=" + email)
         .then(res => res.text())
         .then(res => {
             document.getElementById('cek-email').innerText = res;

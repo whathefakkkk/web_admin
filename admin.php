@@ -1,12 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION['nama_pengguna']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../error/403.php");
+    header("Location: ./error/403.php");
     exit;
 }
 
-include 'koneksi.php';
-include 'log_aktivitas.php';
+include './file/koneksi.php';
+include './file/log_aktivitas.php';
 
 function bersihkan($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
@@ -105,7 +105,7 @@ if ($hal == 'edit' && isset($_GET['id'])) {
     } catch (Exception $e) {
         // Simpan pesan error ke session (opsional)
         $_SESSION['error_msg'] = $e->getMessage();
-        header("Location: ../error/500.php");
+        header("Location: ./error/500.php");
         exit;
     }
 } elseif ($hal == 'hapususer' && isset($_GET['id'])) {
@@ -129,7 +129,7 @@ if ($hal == 'edit' && isset($_GET['id'])) {
     }
 }
 
-date_default_timezone_set('Asia/Singapore');
+date_default_timezone_set('Asia/Singapore');//susaikan dengan time zone anda
 $tanggal_hari_ini = date('Y-m-d');
 $jam = date('H');
 $salam = ($jam >= 5 && $jam < 12) ? "Selamat pagi" : (($jam >= 12 && $jam < 15) ? "Selamat siang" : (($jam >= 15 && $jam < 18) ? "Selamat sore" : "Selamat malam"));
@@ -157,7 +157,7 @@ while ($row = mysqli_fetch_assoc($transaksi_result)) {
     $end = clone $tanggal;
     $end->modify('Sunday this week');
     $grouped_transaksi[$minggu_ke] = [
-      'periode' => $start->format('d-m-Y') . ' - ' . $end->format('d-m-Y'),
+      'periode' => $start->format('d/m/Y') . ' - ' . $end->format('d/m/Y'),
       'data' => []
     ];
   }
@@ -172,14 +172,14 @@ while ($row = mysqli_fetch_assoc($transaksi_result)) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> Admin </title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://unpkg.com/feather-icons"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <div class="sidebar">
-    <h4 class="text-center mb-4">☕ Logo</h4>
+    <h4 class="text-center mb-4">☕ Logo</h4> <!-- ganti "logo" dengan brand anda -->
     <a href="#dashboard" class="active" onclick="showSection('dashboard')"><i data-feather="home"></i> <span>Dashboard</span></a>
     <a href="#menu" onclick="showSection('menu')"><i data-feather="coffee"></i> <span>Menu</span></a>
     <a href="#pengguna" onclick="showSection('pengguna')"><i data-feather="users"></i> <span>Pengguna</span></a>
@@ -510,7 +510,7 @@ while ($row = mysqli_fetch_assoc($transaksi_result)) {
     <!-- Section lain bisa dilanjutkan di sini -->
   </div>
 
-<script src="../js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>
     feather.replace();
     function showSection(id) {

@@ -21,7 +21,7 @@
         <h1 class="display-1 text-danger">403</h1>
         <h4 class="mb-3">Akses Ditolak</h4>
         <p>Anda tidak memiliki izin untuk mengakses halaman ini.</p>
-        <a href="../file/login.php" class="btn btn-outline-primary mt-3">Kembali ke Beranda</a>
+        <a href="../login.php" class="btn btn-outline-primary mt-3">Kembali ke Beranda</a>
     </div>
 </body>
 </html>
