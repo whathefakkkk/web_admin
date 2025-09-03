@@ -1,5 +1,5 @@
 -- Dibuat oleh: Juan Sylvister
--- Gunakan file ini untuk membuat database dan tabel dari awal.
+-- Gunakan file ini sebagai panduan untuk membuat database dan tabel dari awal.
 
 CREATE DATABASE nama_database;
 USE nama_database;
